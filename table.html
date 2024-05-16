@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблицы с кнопками</title>
+    <style>
+        .table-container {
+            display: none;
+        }
+        .table-container.active {
+            display: block;
+        }
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="showTable('table1')">Показать таблицу 1</button>
+    <button onclick="showTable('table2')">Показать таблицу 2</button>
+    <button onclick="showTable('table3')">Показать таблицу 3</button>
+
+    <div id="table1" class="table-container">
+        <table border="1">
+            <tr><th>Столбец 1</th><th>Столбец 2</th></tr>
+            <tr><td>Ячейка 1</td><td>Ячейка 2</td></tr>
+        </table>
+    </div>
+
+    <div id="table2" class="table-container">
+        <table border="1">
+            <tr><th>Столбец A</th><th>Столбец B</th></tr>
+            <tr><td>Ячейка A1</td><td>Ячейка B1</td></tr>
+        </table>
+    </div>
+
+    <div id="table3" class="table-container">
+        <table border="1">
+            <tr><th>Столбец X</th><th>Столбец Y</th></tr>
+            <tr><td>Ячейка X1</td><td>Ячейка Y1</td></tr>
+        </table>
+    </div>
+
+    <script>
+        function showTable(tableId) {
+            // Скрываем все таблицы
+            const tables = document.querySelectorAll('.table-container');
+            tables.forEach(table => {
+                table.classList.remove('active');
+            });
+
+            // Показываем выбранную таблицу
+            const selectedTable = document.getElementById(tableId);
+            if (selectedTable) {
+                selectedTable.classList.add('active');
+            }
+        }
+    </script>
+    
+</body>
+</html>
